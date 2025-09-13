@@ -1,0 +1,138 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("ImageLabel")
+local script1 = Instance.new("TextButton")
+local X = Instance.new("TextButton")
+local script2 = Instance.new("TextButton")
+local cmd = Instance.new("TextButton")
+local dex_explorer = Instance.new("TextButton")
+local txt_hello = Instance.new("TextLabel")
+local noclip = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+Frame.Name = "Frame"
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Frame.BackgroundTransparency = 1.000
+Frame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.497535199, 0, 0.177129582, 0)
+Frame.Size = UDim2.new(0, 267, 0, 107)
+Frame.Image = "rbxassetid://3570695787"
+Frame.ImageColor3 = Color3.fromRGB(49, 49, 49)
+Frame.ScaleType = Enum.ScaleType.Slice
+Frame.SliceCenter = Rect.new(100, 100, 100, 100)
+Frame.SliceScale = 0.040
+
+
+script1.Name = "script1"
+script1.Parent = Frame
+script1.BackgroundColor3 = Color3.fromRGB(0, 255, 247)
+script1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+script1.BorderSizePixel = 0
+script1.Position = UDim2.new(0.0225080289, 0, 0.633808613, 0)
+script1.Size = UDim2.new(0, 31, 0, 32)
+script1.Font = Enum.Font.SourceSansItalic
+script1.Text = "1"
+script1.TextColor3 = Color3.fromRGB(0, 0, 0)
+script1.TextSize = 14.000
+script1.MouseButton1Down:connect(function()
+loadstring(game:HttpGet('https://pastebin.com/raw/e89Mn4Ec'))()
+end)
+
+X.Name = "X"
+X.Parent = Frame
+X.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+X.BorderColor3 = Color3.fromRGB(0, 0, 0)
+X.BorderSizePixel = 0
+X.Position = UDim2.new(0.877833903, 0, 0.0665802285, 0)
+X.Size = UDim2.new(0, 26, 0, 22)
+X.Font = Enum.Font.SourceSansItalic
+X.Text = "X"
+X.TextColor3 = Color3.fromRGB(0, 0, 0)
+X.TextSize = 14.000
+X.MouseButton1Down:connect(function()
+Frame.Visible = false
+end)
+
+script2.Name = "script2"
+script2.Parent = Frame
+script2.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+script2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+script2.BorderSizePixel = 0
+script2.Position = UDim2.new(0.164486319, 0, 0.633808732, 0)
+script2.Size = UDim2.new(0, 31, 0, 32)
+script2.Font = Enum.Font.SourceSansItalic
+script2.Text = "2"
+script2.TextColor3 = Color3.fromRGB(0, 0, 0)
+script2.TextSize = 14.000
+script2.MouseButton1Down:connect(function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/vertex-peak/vertex/refs/heads/main/loadstring'))()
+end)
+
+cmd.Name = "cmd"
+cmd.Parent = Frame
+cmd.BackgroundColor3 = Color3.fromRGB(85, 0, 255)
+cmd.BorderColor3 = Color3.fromRGB(0, 0, 0)
+cmd.BorderSizePixel = 0
+cmd.Position = UDim2.new(0.313430607, 0, 0.633808732, 0)
+cmd.Size = UDim2.new(0, 31, 0, 32)
+cmd.Font = Enum.Font.SourceSansItalic
+cmd.Text = "cmd"
+cmd.TextColor3 = Color3.fromRGB(0, 0, 0)
+cmd.TextSize = 14.000
+cmd.MouseButton1Down:connect(function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+dex_explorer.Name = "dex_explorer"
+dex_explorer.Parent = Frame
+dex_explorer.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+dex_explorer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+dex_explorer.BorderSizePixel = 0
+dex_explorer.Position = UDim2.new(0.458629608, 0, 0.633808732, 0)
+dex_explorer.Size = UDim2.new(0, 41, 0, 32)
+dex_explorer.Font = Enum.Font.SourceSansItalic
+dex_explorer.Text = "explorer"
+dex_explorer.TextColor3 = Color3.fromRGB(0, 0, 0)
+dex_explorer.TextSize = 14.000
+dex_explorer.MouseButton1Down:connect(function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/MassiveHubs/loadstring/refs/heads/main/DexXenoAndRezware'))()
+end)
+
+txt_hello.Name = "txt_hello"
+txt_hello.Parent = Frame
+txt_hello.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+txt_hello.BackgroundTransparency = 1.000
+txt_hello.BorderColor3 = Color3.fromRGB(0, 0, 0)
+txt_hello.BorderSizePixel = 0
+txt_hello.Position = UDim2.new(0.0674157292, 0, 0.0654205605, 0)
+txt_hello.Size = UDim2.new(0, 200, 0, 50)
+txt_hello.Font = Enum.Font.SourceSansItalic
+txt_hello.Text = "Hello !"
+txt_hello.TextColor3 = Color3.fromRGB(0, 255, 0)
+txt_hello.TextScaled = true
+txt_hello.TextSize = 14.000
+txt_hello.TextWrapped = true
+
+noclip.Name = "noclip"
+noclip.Parent = Frame
+noclip.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+noclip.BorderColor3 = Color3.fromRGB(0, 0, 0)
+noclip.BorderSizePixel = 0
+noclip.Position = UDim2.new(0.634659529, 0, 0.624462962, 0)
+noclip.Size = UDim2.new(0, 41, 0, 32)
+noclip.Font = Enum.Font.SourceSansItalic
+noclip.Text = "noclip"
+noclip.TextColor3 = Color3.fromRGB(0, 0, 0)
+noclip.TextSize = 14.000
+dex_explorer.MouseButton1Down:connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/noclip"))()
+end)
