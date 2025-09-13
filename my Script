@@ -1,0 +1,32 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("WATER HUB", "Ocean")
+--Main
+local Tab = Window:NewTab("Main")
+local MainSection = Tab:NewSection("Main")
+MainSection:NewButton("noclip", "launch noclip", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/noclip"))()
+end)
+
+MainSection:NewButton("Infinite Yield", "launch Infinite Yield Script", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+MainSection:NewButton("dex explorer", "launch dex explorer", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/MassiveHubs/loadstring/refs/heads/main/DexXenoAndRezware'))()
+end)
+
+
+MainSection:NewButton("Speed hack and Jamp hack", "launch Speed hack and Jamp hack", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/speed%20hack%20and%20jamp%20hack"))()
+end)
+
+--MM2
+
+local Tab = Window:NewTab("MM2")
+local Section = Tab:NewSection("MM2")
+MM2Section:NewButton("Script 1", "launch Script 1", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/e89Mn4Ec'))()
+end)
+
+MM2Section:NewButton("Script 2", "launch Script 2", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/vertex-peak/vertex/refs/heads/main/loadstring'))()
+end)
