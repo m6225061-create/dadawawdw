@@ -19,6 +19,10 @@ MainSection:NewButton("Speed hack and Jamp hack", "launch Speed hack and Jamp ha
     loadstring(game:HttpGet("https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/speed%20hack%20and%20jamp%20hack"))()
 end)
 
+MainSection:NewButton("Invisible", "launch Invisible Script", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
+end)
+
 --MM2
 
 local MM2 = Window:NewTab("MM2")
