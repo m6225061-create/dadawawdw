@@ -40,3 +40,60 @@ end)
 MM2Section:NewButton("Overdrive H {There is a key}", "launch Overdrive H Script", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/BaconScrr/Darkness_Script/refs/heads/main/api.overdrivehub.xyz-v1"))()
 end)
+
+MainSection:NewSlider("Player Speed", "SliderInfo", 1000, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+--Jamp
+
+-- Сохранение настроек
+local Settings = {
+    JumpHeight = 50,
+    AutoApply = true
+}
+
+-- Основная вкладка
+local MainTab = Window:NewTab("Прыжок")
+local JumpSection = MainTab:NewSection("Настройки прыжка")
+
+-- Функция применения высоты прыжка
+function ApplyJumpHeight()
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+    if character then
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid.JumpPower = Settings.JumpHeight
+            print("Высота прыжка установлена: " .. Settings.JumpHeight)
+        end
+    end
+end
+
+-- Ползунок для высоты прыжка
+local JumpSlider = JumpSection:NewSlider(
+    "Высота прыжка", 
+    "Установите высоту прыжка (0-100)", 
+    500, 
+    50, 
+    function(value)
+        Settings.JumpHeight = value
+        if Settings.AutoApply then
+            ApplyJumpHeight()
+        end
+    end
+)
+
+-- Автоматическое применение при появлении персонажа
+game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
+    character:WaitForChild("Humanoid")
+    wait(0.5)
+    if Settings.AutoApply then
+        ApplyJumpHeight()
+    end
+end)
+
+-- Применяем настройки при запуске
+if game.Players.LocalPlayer.Character then
+    ApplyJumpHeight()
+end
