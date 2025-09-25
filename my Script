@@ -65,6 +65,10 @@ function ApplyJumpHeight()
     end
 end
 
+MainSection:NewButton("F3X tool", "give F3X tool", function()
+    loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
+end)
+
 -- Ползунок для высоты прыжка
 local JumpSlider = JumpSection:NewSlider(
     "Высота прыжка", 
