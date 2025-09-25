@@ -56,10 +56,6 @@ local Settings = {
     AutoApply = true
 }
 
--- Основная вкладка
-local MainTab = Window:NewTab("Прыжок")
-local JumpSection = MainTab:NewSection("Настройки прыжка")
-
 -- Функция применения высоты прыжка
 function ApplyJumpHeight()
     local player = game.Players.LocalPlayer
@@ -74,9 +70,9 @@ function ApplyJumpHeight()
 end
 
 -- Ползунок для высоты прыжка
-local JumpSlider = JumpSection:NewSlider(
-    "Высота прыжка", 
-    "Установите высоту прыжка (0-100)", 
+local JumpSlider = MainSection:NewSlider(
+    "jump height", 
+    "jump height edit", 
     500, 
     50, 
     function(value)
