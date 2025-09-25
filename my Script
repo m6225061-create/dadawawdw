@@ -18,6 +18,14 @@ MainSection:NewButton("Invisible", "launch Invisible Script", function()
     loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
 end)
 
+MainSection:NewButton("F3X tool", "give F3X tool", function()
+    loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
+end)
+
+MainSection:NewButton("FLY", "launch FLY Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+end)
+
 --MM2
 
 local MM2 = Window:NewTab("MM2")
@@ -64,10 +72,6 @@ function ApplyJumpHeight()
         end
     end
 end
-
-MainSection:NewButton("F3X tool", "give F3X tool", function()
-    loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
-end)
 
 -- Ползунок для высоты прыжка
 local JumpSlider = JumpSection:NewSlider(
