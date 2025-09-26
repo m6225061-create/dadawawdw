@@ -1,0 +1,3 @@
+getgenv().RTX_Name = "rtxnamehere" 
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/unk/refs/heads/main/patrick%20shader.luau"))() 
