@@ -26,6 +26,10 @@ MainSection:NewButton("FLY", "launch FLY Script", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
 end)
 
+MainSection:NewButton("Shaders", "launch Shaders Script", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/RTX%20Gui%20Hub%20Obfuscator'))()
+end)
+
 --MM2
 
 local MM2 = Window:NewTab("MM2")
