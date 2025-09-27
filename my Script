@@ -45,11 +45,23 @@ MM2Section:NewButton("Vartex", "launch Vartex Script", function()
 end)
 
 MM2Section:NewButton("Overdrive H {There is a key}", "launch Overdrive H Script", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/BaconScrr/Darkness_Script/refs/heads/main/api.overdrivehub.xyz-v1"))()
+    loadstring(game:HttpGet("https://pastebin.com/raw/e4iVr1WZ"))()
 end)
 
 MainSection:NewSlider("Player Speed", "SliderInfo", 1000, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+MM2Section:NewButton("TravHub", "launch TravHub Script", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/NoovaScripts/roblox/refs/heads/main/autofarm'))()
+end)
+
+MM2Section:NewButton("FRONT EVILL", "launch FRONT EVILL Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Front-Evill/Script-Hub/refs/heads/main/GUI/index.lua"))()
+end)
+
+MM2Section:NewButton("CapyHub", "launch CapyHub Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MSTTOPPER/Scripts/refs/heads/main/murdmyst2capyhub.txt"))()
 end)
 
 --Jamp
