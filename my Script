@@ -84,6 +84,24 @@ NITFSection:NewButton("Cobra Hub", "launch Cobra Hub Script", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Backwoodsix/Cobra.gg-99-nights-in-the-Forrest-FREE-keyless-/refs/heads/main/.lua", true))()
 end)
 
+--baft
+
+local baft = Window:NewTab("Build A Boat For Treasure")
+
+local baftSection = baft:NewSection("Build A Boat For Treasure")
+
+baftSection:NewButton("Script 1", "launch Script 1", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/TheRealAsu/BABFT/refs/heads/main/Source.lua'))("T.me/DeltaScripts")
+end)
+
+baftSection:NewButton("Weshky Hub", "launch Weshky Hub Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/suntisalts/WeshkyHub/refs/heads/main/MainLoader.lua"))()
+end)
+
+baftSection:NewButton("Build A Boat For Treasure.exe", "launch Build A Boat For Treasure.exe Script", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/XRoLLu/UWU/main/BUILD%20A%20BOAT%20FOR%20TREASURE.lua'))()
+end)
+
 --Jamp
 
 -- Сохранение настроек
