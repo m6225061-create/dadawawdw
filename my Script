@@ -150,3 +150,35 @@ end)
 if game.Players.LocalPlayer.Character then
     ApplyJumpHeight()
 end
+
+--Inf Jump
+
+local Settings = {
+    Enabled = false,
+    JumpPower = 50
+}
+
+MainSection:NewToggle("Infinite Jump", "launch Infinite Jump", function(state)
+    Settings.Enabled = state
+end)
+
+-- Infinite Jump Logic
+game:GetService("UserInputService").InputBegan:connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.KeyCode == Enum.KeyCode.Space and Settings.Enabled then
+        local char = game.Players.LocalPlayer.Character
+        if char then
+            local hum = char:FindFirstChildOfClass("Humanoid")
+            if hum and (hum:GetState() == Enum.HumanoidStateType.Freefall or hum:GetState() == Enum.HumanoidStateType.Jumping) then
+                local root = char:FindFirstChild("HumanoidRootPart")
+                if root then
+                    local bv = Instance.new("BodyVelocity")
+                    bv.Velocity = Vector3.new(0, Settings.JumpPower, 0)
+                    bv.MaxForce = Vector3.new(0, math.huge, 0)
+                    bv.Parent = root
+                    game:GetService("Debris"):AddItem(bv, 0.1)
+                end
+            end
+        end
+    end
+end)
