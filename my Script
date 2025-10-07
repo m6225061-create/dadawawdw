@@ -182,3 +182,23 @@ game:GetService("UserInputService").InputBegan:connect(function(input, gameProce
         end
     end
 end)
+
+--Tp 
+
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+
+local Section = Tab:NewSection("Teleport to Players")
+
+-- Online players buttons
+for _, player in pairs(Players:GetPlayers()) do
+    if player ~= Player then
+        Section:NewButton(player.Name, "TP to " .. player.Name, function()
+            if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                if Player.Character and Player.Character:FindFirstChild("HumanoidRootPart") then
+                    Player.Character.HumanoidRootPart.CFrame = player.Character.HumanoidRootPart.CFrame
+                end
+            end
+        end)
+    end
+end
