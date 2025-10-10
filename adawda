@@ -94,5 +94,5 @@ function Notify:Send(title, text, duration)
 end
 
 -- Примеры использования:
-wait(1)
+wait(2)
 Notify:Send("Успех!", "Операция выполнена успешно", 3)
