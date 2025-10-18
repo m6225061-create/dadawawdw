@@ -52,6 +52,12 @@ MainSection:NewButton("Shaders", "launch Shaders Script", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/RTX%20Gui%20Hub%20Obfuscator'))()
 end)
 
+MainSection:NewButton("Visual Script Hub", "launch Visual Script Hub", function()
+    print("status:✅")
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/Visual%20Script%20Hub"))()
+end)
+
 --MM2
 
 local MM2 = Window:NewTab("Murder Mystery 2")
@@ -64,7 +70,7 @@ MM2Section:NewButton("MM2 Admin Panel", "launch MM2 Admin Panel Script", functio
     loadstring(game:HttpGet('https://pastebin.com/raw/e89Mn4Ec'))()
 end)
 
-MM2Section:NewButton("Vartex", "launch Vartex Script", function()
+MM2Section:NewButton("Vertex", "launch Vertex Script", function()
     print("status:✅")
     loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/vertex-peak/vertex/refs/heads/main/loadstring'))()
