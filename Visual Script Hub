@@ -1,0 +1,263 @@
+local player = game.Players.LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
+local gui = Instance.new("ScreenGui")
+gui.Name = "FEVisualScriptUI"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
+
+-- // Main Frame
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 280, 0, 260)
+frame.Position = UDim2.new(0.5, -140, 0.5, -130)
+frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+frame.BorderSizePixel = 0
+frame.Active = true
+frame.Draggable = true
+frame.Parent = gui
+
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 10)
+corner.Parent = frame
+
+-- // Header
+local header = Instance.new("Frame")
+header.Size = UDim2.new(1, 0, 0, 32)
+header.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+header.BorderSizePixel = 0
+header.Parent = frame
+
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, -60, 1, 0)
+title.Position = UDim2.new(0, 10, 0, 0)
+title.BackgroundTransparency = 1
+title.Text = "Visual Script Hub"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextSize = 16
+title.Font = Enum.Font.GothamBold
+title.TextXAlignment = Enum.TextXAlignment.Left
+title.Parent = header
+
+-- // Buttons (Minimize & Close)
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0, 30, 0, 30)
+closeButton.Position = UDim2.new(1, -35, 0, 1)
+closeButton.BackgroundTransparency = 1
+closeButton.Text = "✖"
+closeButton.TextColor3 = Color3.fromRGB(255, 80, 80)
+closeButton.TextSize = 18
+closeButton.Parent = header
+
+local minimizeButton = Instance.new("TextButton")
+minimizeButton.Size = UDim2.new(0, 30, 0, 30)
+minimizeButton.Position = UDim2.new(1, -70, 0, 1)
+minimizeButton.BackgroundTransparency = 1
+minimizeButton.Text = "–"
+minimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+minimizeButton.TextSize = 20
+minimizeButton.Parent = header
+
+-- // Content
+local content = Instance.new("ScrollingFrame")
+content.Size = UDim2.new(1, -10, 1, -40)
+content.Position = UDim2.new(0, 5, 0, 37)
+content.BackgroundTransparency = 1
+content.BorderSizePixel = 0
+content.CanvasSize = UDim2.new(0, 0, 0, 0)
+content.ScrollBarThickness = 6
+content.Parent = frame
+
+local layout = Instance.new("UIListLayout")
+layout.Padding = UDim.new(0, 5)
+layout.FillDirection = Enum.FillDirection.Vertical
+layout.SortOrder = Enum.SortOrder.LayoutOrder
+layout.Parent = content
+
+layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+	content.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 10)
+end)
+
+-- // Helper for buttons
+local function addButton(name, color)
+	local b = Instance.new("TextButton")
+	b.Size = UDim2.new(1, -10, 0, 35)
+	b.BackgroundColor3 = color or Color3.fromRGB(50, 50, 50)
+	b.TextColor3 = Color3.fromRGB(255, 255, 255)
+	b.TextSize = 16
+	b.Font = Enum.Font.Gotham
+	b.Text = name
+	b.AutoButtonColor = true
+	b.Parent = content
+	local c = Instance.new("UICorner")
+	c.CornerRadius = UDim.new(0, 8)
+	c.Parent = b
+	return b
+end
+
+-- =====================================================
+--                ✨ SCRIPT FUNCTIONS ✨
+-- =====================================================
+
+-- // Noclip
+local noclipEnabled = false
+local function toggleNoclip()
+	noclipEnabled = not noclipEnabled
+	if noclipEnabled then
+		game:GetService("RunService").Stepped:Connect(function()
+			pcall(function()
+				for _, part in ipairs(char:GetDescendants()) do
+					if part:IsA("BasePart") and part.CanCollide then
+						part.CanCollide = false
+					end
+				end
+			end)
+		end)
+		print("Noclip ON")
+	else
+		for _, part in ipairs(char:GetDescendants()) do
+			if part:IsA("BasePart") then
+				part.CanCollide = true
+			end
+		end
+		print("Noclip OFF")
+	end
+end
+
+-- // Fly
+local flying = false
+local function toggleFly()
+	flying = not flying
+	local humanoid = char:FindFirstChildOfClass("Humanoid")
+	if not humanoid then return end
+	if flying then
+		print("Fly ON")
+		local bodyGyro = Instance.new("BodyGyro", char.PrimaryPart)
+		bodyGyro.P = 9e4
+		bodyGyro.MaxTorque = Vector3.new(9e9, 9e9, 9e9)
+		bodyGyro.CFrame = char.PrimaryPart.CFrame
+
+		local bodyVel = Instance.new("BodyVelocity", char.PrimaryPart)
+		bodyVel.Velocity = Vector3.zero
+		bodyVel.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+
+		local UIS = game:GetService("UserInputService")
+		local flySpeed = 60
+		local moving = {F = false, B = false, L = false, R = false, U = false, D = false}
+
+		UIS.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.Keyboard then
+				if input.KeyCode == Enum.KeyCode.W then moving.F = true end
+				if input.KeyCode == Enum.KeyCode.S then moving.B = true end
+				if input.KeyCode == Enum.KeyCode.A then moving.L = true end
+				if input.KeyCode == Enum.KeyCode.D then moving.R = true end
+				if input.KeyCode == Enum.KeyCode.Space then moving.U = true end
+				if input.KeyCode == Enum.KeyCode.LeftControl then moving.D = true end
+			end
+		end)
+		UIS.InputEnded:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.Keyboard then
+				if input.KeyCode == Enum.KeyCode.W then moving.F = false end
+				if input.KeyCode == Enum.KeyCode.S then moving.B = false end
+				if input.KeyCode == Enum.KeyCode.A then moving.L = false end
+				if input.KeyCode == Enum.KeyCode.D then moving.R = false end
+				if input.KeyCode == Enum.KeyCode.Space then moving.U = false end
+				if input.KeyCode == Enum.KeyCode.LeftControl then moving.D = false end
+			end
+		end)
+
+		while flying and task.wait() do
+			local camCF = workspace.CurrentCamera.CFrame
+			local moveDir = Vector3.zero
+			if moving.F then moveDir += camCF.LookVector end
+			if moving.B then moveDir -= camCF.LookVector end
+			if moving.L then moveDir -= camCF.RightVector end
+			if moving.R then moveDir += camCF.RightVector end
+			if moving.U then moveDir += Vector3.new(0,1,0) end
+			if moving.D then moveDir -= Vector3.new(0,1,0) end
+			bodyVel.Velocity = moveDir * flySpeed
+			bodyGyro.CFrame = camCF
+		end
+		bodyGyro:Destroy()
+		bodyVel:Destroy()
+		print("Fly OFF")
+	end
+end
+
+-- // Spin
+local spinning = false
+local function toggleSpin()
+	spinning = not spinning
+	if spinning then
+		print("Spin ON")
+		task.spawn(function()
+			while spinning and task.wait() do
+				char:SetPrimaryPartCFrame(char.PrimaryPart.CFrame * CFrame.Angles(0, math.rad(10), 0))
+			end
+		end)
+	else
+		print("Spin OFF")
+	end
+end
+
+-- // Fling (simple visual force)
+local function flingPlayer()
+	print("Fling activated (visual)")
+	local root = char:FindFirstChild("HumanoidRootPart")
+	if root then
+		root.Velocity = Vector3.new(0, 100, 0)
+	end
+end
+
+-- // Zero Gravity
+local zeroG = false
+local function toggleZeroG()
+	zeroG = not zeroG
+	local root = char:FindFirstChild("HumanoidRootPart")
+	if not root then return end
+	if zeroG then
+		print("Zero Gravity ON")
+		local bg = Instance.new("BodyForce", root)
+		bg.Name = "ZeroGForce"
+		bg.Force = Vector3.new(0, workspace.Gravity * root:GetMass(), 0)
+	else
+		print("Zero Gravity OFF")
+		local existing = root:FindFirstChild("ZeroGForce")
+		if existing then existing:Destroy() end
+	end
+end
+
+-- =====================================================
+--                🔘 ADD BUTTONS 🔘
+-- =====================================================
+local noclipBtn = addButton("Noclip")
+noclipBtn.MouseButton1Click:Connect(toggleNoclip)
+
+local flyBtn = addButton("Fly")
+flyBtn.MouseButton1Click:Connect(toggleFly)
+
+local spinBtn = addButton("Spin")
+spinBtn.MouseButton1Click:Connect(toggleSpin)
+
+local flingBtn = addButton("Fling")
+flingBtn.MouseButton1Click:Connect(flingPlayer)
+
+local zeroBtn = addButton("Zero Gravity")
+zeroBtn.MouseButton1Click:Connect(toggleZeroG)
+
+-- // Minimize / Close
+local minimized = false
+minimizeButton.MouseButton1Click:Connect(function()
+	minimized = not minimized
+	if minimized then
+		content.Visible = false
+		frame.Size = UDim2.new(0, 280, 0, 40)
+		minimizeButton.Text = "+"
+	else
+		content.Visible = true
+		frame.Size = UDim2.new(0, 280, 0, 260)
+		minimizeButton.Text = "–"
+	end
+end)
+
+closeButton.MouseButton1Click:Connect(function()
+	gui:Destroy()
+end)
