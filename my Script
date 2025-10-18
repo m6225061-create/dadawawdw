@@ -52,10 +52,14 @@ MainSection:NewButton("Shaders", "launch Shaders Script", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/RTX%20Gui%20Hub%20Obfuscator'))()
 end)
 
-MainSection:NewButton("Visual Script Hub", "launch Visual Script Hub", function()
+MainSection:NewButton("Visual Script Hub", "Run Visual Script Hub", function()
     print("status:✅")
     loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/Visual%20Script%20Hub"))()
+end)
+
+MainSection:NewButton("Respawn", "Respawn", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 0, 0)
 end)
 
 --MM2
