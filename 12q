@@ -43,7 +43,7 @@ end)
 MainSection:NewButton("FLY", "launch FLY Script", function()
     print("status:✅")
     loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/FLY%20WATER%20HUB"))()
 end)
 
 MainSection:NewButton("Shaders", "launch Shaders Script", function()
