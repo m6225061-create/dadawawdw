@@ -203,12 +203,6 @@ local Tab = Window:NewTab("Main")
 
 local MainSection = Tab:NewSection("Main")
 
-MainSection:NewButton("noclip", "launch noclip", function()
-    print("status:✅")
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/noclip"))()
-end)
-
 MainSection:NewButton("Infinite Yield", "launch Infinite Yield Script", function()
     print("status:✅")
     loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
@@ -512,4 +506,93 @@ RPSection:NewButton("HavenXClient", "launch HavenXClient Script", function()
     print("status:✅")
     loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/rkdavidadevelipe/MhzinClient/refs/heads/main/HavenXClient1.lua"))()
+end)
+
+--NoClip
+
+-- Переменные
+local noclip = false
+local player = game.Players.LocalPlayer
+local noclipConnection
+local originalCollisions = {}
+
+-- Функция для сохранения оригинальных коллизий
+local function saveOriginalCollisions()
+    if player.Character then
+        originalCollisions = {}
+        for _, v in pairs(player.Character:GetDescendants()) do
+            if v:IsA("BasePart") then
+                originalCollisions[v] = v.CanCollide
+            end
+        end
+    end
+end
+
+-- Функция для восстановления оригинальных коллизий
+local function restoreOriginalCollisions()
+    if player.Character then
+        for part, canCollide in pairs(originalCollisions) do
+            if part and part.Parent then
+                part.CanCollide = canCollide
+            end
+        end
+        originalCollisions = {}
+    end
+end
+
+-- Функция для включения NoClip
+local function enableNoClip()
+    if noclipConnection then
+        noclipConnection:Disconnect()
+    end
+    
+    saveOriginalCollisions()
+    
+    noclipConnection = game:GetService("RunService").Stepped:Connect(function()
+        if noclip and player.Character then
+            for _, v in pairs(player.Character:GetDescendants()) do
+                if v:IsA("BasePart") then
+                    v.CanCollide = false
+                end
+            end
+        end
+    end)
+end
+
+-- Функция для выключения NoClip
+local function disableNoClip()
+    if noclipConnection then
+        noclipConnection:Disconnect()
+        noclipConnection = nil
+    end
+    
+    restoreOriginalCollisions()
+end
+
+-- Тоггл для NoClip
+MainSection:NewToggle("NoClip", "launch NoClip", function(state)
+    noclip = state
+    if state then
+        enableNoClip()
+        Library:Notification("Safe NoClip", "NoClip включен!", "OK")
+    else
+        disableNoClip()
+        Library:Notification("Safe NoClip", "NoClip выключен!", "OK")
+    end
+end)
+
+-- Обработчик для нового персонажа
+player.CharacterAdded:Connect(function(character)
+    character:WaitForChild("HumanoidRootPart")
+    wait(1) -- Даем время на полную загрузку персонажа
+    if noclip then
+        enableNoClip()
+    else
+        restoreOriginalCollisions()
+    end
+end)
+
+-- Автоматическое выключение при удалении персонажа
+player.CharacterRemoving:Connect(function()
+    disableNoClip()
 end)
