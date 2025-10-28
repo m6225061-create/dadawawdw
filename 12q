@@ -196,6 +196,61 @@ end
 wait(4)
 Notify:Send("WELCOME", "Click on RightControl to hide the GUI", 3)
 
+-- Solara Disconnect с настройками
+local Settings = {
+    AutoDisconnect = false, -- true для автоматического отключения
+    Delay = 3, -- Задержка в секундах
+    ShowGUI = true -- Показывать интерфейс
+}
+
+local function SafeKick()
+    pcall(function()
+        game:GetService("Players").LocalPlayer:Kick("⚠️ emergency exit ⚠️")
+    end)
+end
+
+local function SafeTeleport()
+    pcall(function()
+        game:GetService("TeleportService"):Teleport(0)
+    end)
+end
+
+-- Основная функция отключения
+local function PerformDisconnect()
+    
+    -- Пробуем разные методы
+    SafeKick()
+    wait(0.5)
+    SafeTeleport()
+    
+end
+
+-- Запуск в зависимости от настроек
+if Settings.AutoDisconnect then
+    wait(Settings.Delay)
+    PerformDisconnect()
+elseif Settings.ShowGUI then
+    -- Создание простого GUI
+    local gui = Instance.new("ScreenGui")
+    local btn = Instance.new("TextButton")
+    
+    gui.Parent = game:GetService("CoreGui")
+    btn.Parent = gui
+    
+    btn.Size = UDim2.new(0, 200, 0, 50)
+    btn.Position = UDim2.new(0.5, -950, 0, 900)
+    btn.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
+    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    btn.Text = "⚠️ emergency exit ⚠️"
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize = 14
+    
+    btn.MouseButton1Click:Connect(function()
+        btn.Text = "Отключаемся..."
+        PerformDisconnect()
+    end)
+end
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("🍉WATER HUB🍉", "Midnight")
 --Main
