@@ -286,6 +286,11 @@ MainSection:NewButton("Ctrl + Click-TP", "launch Create ctrl + Click-TP Script",
     loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/ctrl%20%2B%20Click-TP'))()
 end)
 
+MainSection:NewButton("Wall Hop", "launch Wall Hop Script", function()
+    print("status:✅")
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/wall%20hop'))()
+end)
 
 MainSection:NewButton("FLY", "launch FLY Script", function()
     print("status:✅")
