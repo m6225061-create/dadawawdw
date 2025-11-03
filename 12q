@@ -362,10 +362,10 @@ MM2Section:NewButton("FRONT EVILL", "launch FRONT EVILL Script", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Front-Evill/Script-Hub/refs/heads/main/GUI/index.lua"))()
 end)
 
-MM2Section:NewButton("CapyHub", "launch CapyHub Script", function()
+MM2Section:NewButton("Vexon Hub", "launch Vexon Script", function()
     print("status:✅")
     loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/MSTTOPPER/Scripts/refs/heads/main/murdmyst2capyhub.txt"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/VexonHub"))()
 end)
 
 -- 99 Nights in the Forest
