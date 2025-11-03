@@ -8,7 +8,7 @@ local KeySection = KeyTab:NewSection("Enter Your Key")
 local KeyParts = {"Blad", " ", "xyulo"}
 local CorrectKey = table.concat(KeyParts)
 
-local ScriptURL = "https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/12q"
+local ScriptURL = "https://raw.githubusercontent.com/m6225061-create/wad13571s/refs/heads/main/kuk?token=GHSAT0AAAAAADLDBPLO3RY3P4IFAHDYB6DQ2II5LJA"
 
 local UserInput = ""
 
