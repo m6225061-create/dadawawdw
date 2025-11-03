@@ -5,7 +5,7 @@ local Window = Library.CreateLib("KEY SYSTEM", "GrapeTheme")
 local KeyTab = Window:NewTab("Key System")
 local KeySection = KeyTab:NewSection("Enter Your Key")
 
-local KeyParts = {"Blad", " ", "xyuloq"}
+local KeyParts = {"Blad", " ", "xyulo"}
 local CorrectKey = table.concat(KeyParts)
 
 local ScriptURL = "https://raw.githubusercontent.com/m6225061-create/wad13571s/refs/heads/main/kuk?token=GHSAT0AAAAAADLDBPLO7FM5PWMHLBVCERWQ2II4UOA"
