@@ -237,11 +237,11 @@ elseif Settings.ShowGUI then
     gui.Parent = game:GetService("CoreGui")
     btn.Parent = gui
     
-    btn.Size = UDim2.new(0, 200, 0, 50)
+    btn.Size = UDim2.new(0, 20, 0, 30)
     btn.Position = UDim2.new(0.5, -950, 0, 900)
     btn.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
     btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    btn.Text = "⚠️ emergency exit ⚠️"
+    btn.Text = "⚠️"
     btn.Font = Enum.Font.GothamBold
     btn.TextSize = 14
     
