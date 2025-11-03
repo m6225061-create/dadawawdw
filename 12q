@@ -299,9 +299,9 @@ MainSection:NewButton("FLY", "launch FLY Script", function()
 end)
 
 MainSection:NewButton("Shaders", "launch Shaders Script", function()
-    print("status:⚠️")
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/wdwada12'))()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/RTX%20Gui%20Hub%20Obfuscator'))()
+    print("status:✅")
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua'))()
 end)
 
 MainSection:NewButton("Visual Script Hub", "Run Visual Script Hub", function()
@@ -316,6 +316,10 @@ end)
 
 MainSection:NewKeybind("Скрыть/Показать GUI", "Прячет/показывает интерфейс", Enum.KeyCode.RightControl, function()
     Library:ToggleUI()
+end)
+
+MainSection:NewButton("^_^ [ possible ban in the experience ]", "^_^ ", function()
+    loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
 end)
 
 --MM2
