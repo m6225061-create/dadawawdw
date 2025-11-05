@@ -44,3 +44,5 @@ KeySection:NewButton("Submit Key", "Verify your key", function()
         })
     end
 end)
+
+KeySection:NewLabel("you can't get a script key if you're a down :0")
