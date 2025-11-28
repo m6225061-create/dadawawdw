@@ -2,5 +2,47 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 
 local Window = Library.CreateLib("KEY SYSTEM", "GrapeTheme")
 
-local KeyTab = Window:NewTab("WARNING")
-local KeySection = KeyTab:NewSection("Обновление...")
+local KeyTab = Window:NewTab("Key System")
+local KeySection = KeyTab:NewSection("Enter Your Key")
+
+local KeyParts = {"Blad", " ", "dayne"}
+local CorrectKey = table.concat(KeyParts)
+
+local ScriptURL = "https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/12q"
+
+local UserInput = ""
+
+KeySection:NewTextBox("Put Key Here", "Enter your key to proceed", function(txt)
+    UserInput = txt
+end)
+
+KeySection:NewButton("Submit Key", "Verify your key", function()
+    if UserInput == CorrectKey then
+        Library:ToggleUI() -- Hides UI if key is correct
+        print("Access Granted")
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Access Granted",
+            Text = "Welcome! The key is correct.",
+            Duration = 3
+        })
+        
+        local success, err = pcall(function()
+            loadstring(game:HttpGet(ScriptURL))()
+        end)
+        
+        if success then
+            print("Script executed successfully!")
+        else
+            print("Error executing script: "..err)
+        end
+    else
+        print("Incorrect Key! Try again.")
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Incorrect Key",
+            Text = "The key you entered is incorrect. Try again!",
+            Duration = 3
+        })
+    end
+end)
+
+KeySection:NewLabel("you can't get a script key if you're a down :0")
