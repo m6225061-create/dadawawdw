@@ -213,11 +213,7 @@ MainSection:NewKeybind("Скрыть/Показать GUI", "Прячет/пок
     Library:ToggleUI()
 end)
 
-MainSection:NewButton("Jerk Off  V1", "possible ban in the experience", function()
-    loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
-end)
-
-MainSection:NewButton("Jerk Off  V2", "possible ban in the experience", function()
+MainSection:NewButton("Jerk Off", "possible ban in the experience", function()
     loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
 end)
 
