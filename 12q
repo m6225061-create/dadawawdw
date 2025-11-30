@@ -205,12 +205,6 @@ MainSection:NewButton("Shaders", "launch Shaders Script", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua'))()
 end)
 
-MainSection:NewButton("Visual Script Hub", "Run Visual Script Hub", function()
-    print("status:✅")
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/Visual%20Script%20Hub"))()
-end)
-
 MainSection:NewButton("Respawn", "Respawn", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 0, 0)
 end)
@@ -219,10 +213,17 @@ MainSection:NewKeybind("Скрыть/Показать GUI", "Прячет/пок
     Library:ToggleUI()
 end)
 
-MainSection:NewButton("^_^ [ possible ban in the experience ]", "^_^ ", function()
+MainSection:NewButton("Jerk Off  V1", "possible ban in the experience", function()
     loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
 end)
 
+MainSection:NewButton("Jerk Off  V2", "possible ban in the experience", function()
+    loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
+end)
+
+MainSection:NewButton("AimBot", "launch AimBot Script", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/aim'))()
+end)
 --MM2
 
 local MM2 = Window:NewTab("Murder Mystery 2")
