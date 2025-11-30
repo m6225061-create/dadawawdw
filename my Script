@@ -1,11 +1,11 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-local Window = Library.CreateLib("KEY SYSTEM", "GrapeTheme")
+local Window = Library.CreateLib("KEY SYSTEM", "Ocean")
 
 local KeyTab = Window:NewTab("Key System")
 local KeySection = KeyTab:NewSection("Enter Your Key")
 
-local KeyParts = {"Blad", " ", "dayne"}
+local KeyParts = {"EX1", " ", "EX"}
 local CorrectKey = table.concat(KeyParts)
 
 local ScriptURL = "https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/12q"
@@ -45,4 +45,6 @@ KeySection:NewButton("Submit Key", "Verify your key", function()
     end
 end)
 
-KeySection:NewLabel("you can't get a script key if you're a down :0")
+KeySection:NewKeybind("Скрыть/Показать GUI", "Прячет/показывает интерфейс", Enum.KeyCode.RightControl, function()
+    Library:ToggleUI()
+end)
