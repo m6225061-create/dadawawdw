@@ -44,7 +44,3 @@ KeySection:NewButton("Submit Key", "Verify your key", function()
         })
     end
 end)
-
-KeySection:NewKeybind("Скрыть GUI", "Прячет интерфейс", Enum.KeyCode.RightControl, function()
-    Library:DestroyUI()
-end)
