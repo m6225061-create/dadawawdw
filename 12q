@@ -169,12 +169,6 @@ MainSection:NewButton("dex explorer", "launch dex explorer", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/MassiveHubs/loadstring/refs/heads/main/DexXenoAndRezware'))()
 end)
 
-MainSection:NewButton("Invisible", "launch Invisible Script", function()
-   print("status:✅")
-   loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
-   loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
-end)
-
 MainSection:NewButton("F3X tool", "give F3X tool", function()
     print("status:✅")
     loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
