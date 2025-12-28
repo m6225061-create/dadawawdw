@@ -5,7 +5,7 @@ local Window = Library.CreateLib("KEY SYSTEM", "Ocean")
 local KeyTab = Window:NewTab("Key System")
 local KeySection = KeyTab:NewSection("Enter Your Key")
 
-local KeyParts = {"EX1", " ", ""}
+local KeyParts = {"EX1"}
 local CorrectKey = table.concat(KeyParts)
 
 local ScriptURL = "https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/12q"
