@@ -1,13 +1,11 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-local Window = Library.CreateLib("KEY SYSTEM", "Ocean")
+local Window = Library.CreateLib("KEY SYSTEM", "GrapeTheme")
 
 local KeyTab = Window:NewTab("Key System")
 local KeySection = KeyTab:NewSection("Enter Your Key")
 
-local KeyParts = {"EX1"}
-local CorrectKey = table.concat(KeyParts)
-
+local CorrectKey = "EX1EX" -- Change this to your actual key
 local ScriptURL = "https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/12q"
 
 local UserInput = ""
@@ -25,11 +23,11 @@ KeySection:NewButton("Submit Key", "Verify your key", function()
             Text = "Welcome! The key is correct.",
             Duration = 3
         })
-        
+
         local success, err = pcall(function()
             loadstring(game:HttpGet(ScriptURL))()
         end)
-        
+
         if success then
             print("Script executed successfully!")
         else
