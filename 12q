@@ -95,7 +95,7 @@ end
 
 -- Примеры использования:
 wait(0,5)
-Notify:Send("WELCOME", "WELCOME TO WATER HUB", 3)
+Notify:Send("WELCOME", "WELCOME TO Melon HUB", 3)
 
 -- Solara Disconnect с настройками
 local Settings = {
@@ -153,7 +153,7 @@ elseif Settings.ShowGUI then
 end
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("🍉WATER HUB🍉", "Midnight")
+local Window = Library.CreateLib("🍉Melon HUB🍉", "Midnight")
 --Main
 local Tab = Window:NewTab("Main")
 
